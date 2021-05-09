@@ -86,11 +86,9 @@ build_test() {
     fi
 }
 
-# macros tests are only run on nightly, since they depend on compiletest_rs,
-# which needs a nightly Rust
 run_macro_tests() {
     cd pnet_macros &&
-    sh -c "$CARGO test $PNET_MACROS_CARGO_FLAGS" &&
+    sh -c "$CARGO clean && $CARGO test $PNET_MACROS_CARGO_FLAGS" &&
     cd ..
 }
 

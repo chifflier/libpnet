@@ -9,13 +9,8 @@ fn run_mode(mode: &'static str) {
 
     config.mode = mode.parse().expect("Invalid mode");
     config.src_base = PathBuf::from(format!("tests/{}", mode));
-    config.clean_rmeta(); // If your tests import the parent crate, this helps with E0464
-
-    if cfg!(target_os = "macos") {
-        config.target_rustcflags = Some("-L target/debug".to_string());
-    } else {
-        config.link_deps();
-    }
+    config.link_deps();
+    config.clean_rmeta();
 
     compiletest::run_tests(&config);
 }
