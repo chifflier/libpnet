@@ -1,0 +1,38 @@
+name: Rust
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  CARGO_TERM_COLOR: always
+  PNET_FEATURES: travis pcap serde
+  PNET_MACROS_FEATURES: travis
+
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libpcap-dev
+    - name: Build and test
+      run: make travis_script
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and test
+      run: make travis_script
+
+  build-win:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: choco install winpcap
+    - name: Build and test
+      run: cargo test --verbose --features "appveyor serde"
