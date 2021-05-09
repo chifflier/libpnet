@@ -35,6 +35,6 @@ jobs:
     - name: Install dependencies
       run: |
         Invoke-WebRequest -UseBasicParsing https://www.winpcap.org/install/bin/WpdPack_4_1_2.zip -OutFile wpd.zip
-        Expand-Archive wpd.zip -OutDirectory lib
+        Expand-Archive -LiteralPath wpd.zip -DestinationPath lib
     - name: Build and test
       run: cargo test --verbose --features "appveyor serde"
