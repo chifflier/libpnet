@@ -30,6 +30,8 @@ jobs:
 
   build-win:
     runs-on: windows-latest
+    env:
+        RUST_TEST_THREADS=1
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
