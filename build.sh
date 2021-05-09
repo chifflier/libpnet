@@ -88,7 +88,7 @@ build_test() {
 
 run_macro_tests() {
     cd pnet_macros &&
-    sh -c "$CARGO clean && $CARGO test $PNET_MACROS_CARGO_FLAGS" &&
+    sh -c "$CARGO test $PNET_MACROS_CARGO_FLAGS" &&
     cd ..
 }
 
