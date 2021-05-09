@@ -34,7 +34,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-        Invoke-WebRequest -UseBasicParsing https://www.winpcap.org/install/bin/WpdPack_4_1_3.zip -OutFile wpd.zip
+        Invoke-WebRequest -UseBasicParsing https://www.winpcap.org/install/bin/WpdPack_4_1_2.zip -OutFile wpd.zip
         Expand-Archive wpd.zip -OutDirectory lib
     - name: Build and test
       run: cargo test --verbose --features "appveyor serde"
