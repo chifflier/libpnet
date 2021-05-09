@@ -12,6 +12,10 @@ fn run_mode(mode: &'static str) {
     config.link_deps(); // Populate config.target_rustcflags with dependencies on the path
     config.clean_rmeta(); // If your tests import the parent crate, this helps with E0464
 
+    if cfg!(target_os = "macos") {
+        config.target_rustcflags = Some("-L target/debug".to_string());
+    }
+
     compiletest::run_tests(&config);
 }
 
