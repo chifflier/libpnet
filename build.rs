@@ -12,7 +12,7 @@ fn print_link_search_path() {
 
     let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
     println!("cargo:rustc-link-search=native={}/lib", manifest_dir);
-    println!("cargo:rustc-link-search=native=C:\\Program Files\\WinPcap");
+    println!("cargo:rustc-link-search=native=C:\\Windows\\System32");
 }
 
 #[cfg(not(windows))]
