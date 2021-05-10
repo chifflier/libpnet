@@ -46,6 +46,13 @@ jobs:
     - name: Build and test
       run: make travis_script
 
+  upterm-macos:
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
   build-win:
     runs-on: windows-latest
     env:
