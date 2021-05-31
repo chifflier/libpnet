@@ -14,6 +14,7 @@ categories = ["network-programming", "parser-implementations"]
 pnet_base = { path = "../pnet_base", version = "0.28.0" }
 pnet_macros_support = { path = "../pnet_macros_support", version = "0.28.0" }
 pnet_macros = { path = "../pnet_macros", version = "0.28.0" }
+crc = "1.8.1"
 
 [build-dependencies]
 glob = "0.3.0"

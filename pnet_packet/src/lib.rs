@@ -11,8 +11,8 @@
 #![macro_use]
 
 extern crate pnet_base;
-extern crate pnet_macros_support;
 extern crate pnet_macros;
+extern crate pnet_macros_support;
 
 pub use pnet_macros_support::packet::*;
 
@@ -24,6 +24,7 @@ pub mod icmpv6;
 pub mod ip;
 pub mod ipv4;
 pub mod ipv6;
+pub mod sctp;
 pub mod tcp;
 pub mod udp;
 pub mod usbpcap;
